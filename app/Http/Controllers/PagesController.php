@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -20,5 +21,24 @@ class PagesController extends Controller
         $page = Page::find($id);
 
         return view('show', ['page' => $page]);
+    }
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+
+            $page = new Page();
+            $page->title = $request['title'];
+            $page->body = $request['head'];
+            $page->fulltext = $request['text'];
+
+            $page->save();
+
+            return redirect('/');
+
+
     }
 }

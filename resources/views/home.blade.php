@@ -20,7 +20,7 @@
         </div>
     </div>
 </div>
-<div class="title m-b-md">
+<div class="content">
     <a href="/">Return to main page</a>
 </div>
 @endsection

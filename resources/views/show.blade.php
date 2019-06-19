@@ -1,13 +1,20 @@
 @extends('layout')
 
 @section('content')
+<br>
 <div class="content">
-    <div class="title m-b-md">
-        <a>{{$page->id}}</a>
-        <a>{{$page->title}}</a>
-        <a>{{$page->body}}</a>
-        <a>{{$page->updated_at}}</a><br>
-        <a href="/">Return</a>
+    <div><a>
+            <h1>{{$page->title}}</h1>
+        </a>
+        <div>
+            <div>{{$page->updated_at}}</div>
+            <a>Tags: </a>
+            <a href="/categories/music">Music</a>
+            <div class="content">
+            </div>
+            <p>{{$page->fulltext}}</p>
+            <a href="/">Return</a>
     </div>
+</div>
 </div>
 @endsection

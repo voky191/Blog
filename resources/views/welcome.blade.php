@@ -1,15 +1,24 @@
 @extends('layout')
 
 @section('content')
-            <div class="content">
-                <div class="title m-b-md">
-                    @foreach ($pages as $page)
-                        <a href="/{{$page->id}}">{{$page->id}}</a>
-                        <a>{{$page->title}}</a>
-                    <a>{{$page->body}}</a>
-                        <a>{{$page->updated_at}}</a>
-                        <br>
-                    @endforeach
+
+            @foreach ($pages as $page)
+                <br>
+                <div class="post">
+                    <div><a>
+                            <h1>{{$page->title}}</h1>
+                        </a>
+                        <div>
+                            <div>{{$page->updated_at}}</div>
+                            <a>Tags: </a>
+                            <a href="/categories/music">Music</a>
+                            <div class="content">
+                        </div>
+                            <p>{{$page->body}}</p>
+                        <a class="btn-primary" href="/{{$page->id}}">More...</a></div>
+                    </div>
                 </div>
-            </div>
+                <hr>
+
+            @endforeach
 @endsection

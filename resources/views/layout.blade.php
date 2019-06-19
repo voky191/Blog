@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Blog</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -95,6 +95,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                    <?php $user = Auth::user(); ?>
+                    @if($user['name']=='admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create">Create new post</a>
+                    </li>
+                        @endif
 
                 </ul>
 
