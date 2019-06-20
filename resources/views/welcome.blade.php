@@ -9,7 +9,7 @@
                             <h1>{{$page->title}}</h1>
                         </a>
                         <div>
-                            <div>{{$page->updated_at}}</div>
+                            <div>{{$page->updated_at->toFormattedDateString()}}</div>
                             <a>Tags: </a>
                             <a href="/categories/music">Music</a>
                             <div class="content">

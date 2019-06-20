@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    public function isComplete()
+
+    protected $fillable = ['title', 'body', 'id'];
+    public function comments()
     {
-        return false;
+        return $this->hasMany(Comment::class);
     }
 
 }

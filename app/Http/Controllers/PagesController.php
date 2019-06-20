@@ -12,7 +12,7 @@ class PagesController extends Controller
     {
         //$pages = DB::table('pages')->get();
 
-        $pages = Page::all();
+        $pages = Page::orderBy('updated_at', 'desc')->get();
 
         return view('welcome', ['pages' => $pages]);
     }
@@ -40,5 +40,32 @@ class PagesController extends Controller
             return redirect('/');
 
 
+    }
+
+    public function update($id)
+    {
+        $page = Page::find($id);
+        return view('update', ['page' => $page]);
+    }
+
+    public function updated(Request $request)
+    {
+        $page = Page::find($request['id']);
+        //echo $page;
+        $page->title = $request['title'];
+        $page->body = $request['head'];
+        $page->fulltext = $request['text'];
+
+        $page->save();
+
+        return redirect('/');
+
+    }
+
+    public function delete(Request $request)
+    {
+        $page = Page::find($request['id']);
+        $page->delete();
+        return redirect('/');
     }
 }

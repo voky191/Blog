@@ -15,10 +15,11 @@ Route::get('/', 'PagesController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create', 'PagesController@create');
+Route::get('/{id}/update', 'PagesController@update');
+Route::post('/comments', "CommentsController@store");
 Route::get('/{id}', 'PagesController@show');
-Route::post('/', 'PagesController@store');
+Route::post('/create', 'PagesController@store');
+Route::post('/', 'PagesController@updated');
+Route::post('/delete', 'PagesController@delete');
 
-Route::get('/about', function () {
-    return view('about');
-});
 
