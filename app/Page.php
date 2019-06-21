@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
 
-    protected $fillable = ['title', 'body', 'id'];
+    //protected $fillable = ['id'];
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
+
 
 }

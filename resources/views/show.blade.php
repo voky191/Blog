@@ -36,7 +36,7 @@
             <li class="list-group-item">
 
                 <strong>
-                    {{ $comment->created_at->diffForHumans() }}
+                    {{ $comment->created_at->diffForHumans() }} by {{$comment->user_id}}
                 </strong>
                 <br>
              {{$comment->body}}
@@ -46,13 +46,24 @@
         </ul>
     </div>
 <br>
+@if($user['name']!='')
     <div class="card">
         <div class="card-body">
             <form method="post" action="/comments">
                 {{csrf_field()}}
+                <div class="form-group">
+
+                    <input class="form-control" type="hidden" name="page_id" placeholder="Your comment here..." value="{{$page->id}}"/>
+
+                </div>
+                <div class="form-group">
+
+                    <input class="form-control" type="hidden" name="user_id" placeholder="Your comment here..." value="{{$user->id}}"/>
+
+                </div>
             <div class="form-group">
 
-                <textarea class="form-control" name="body" placeholder="Your comment here..."></textarea>
+                <textarea class="form-control" name="body" placeholder="Your comment here..." required></textarea>
 
             </div>
             <div class="form-group">
@@ -63,4 +74,5 @@
             </form>
         </div>
     </div>
+    @endif
 @endsection

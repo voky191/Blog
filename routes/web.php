@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create', 'PagesController@create');
 Route::get('/{id}/update', 'PagesController@update');
-Route::post('/comments', "CommentsController@store");
+Route::post('/comments', 'CommentsController@store');
 Route::get('/{id}', 'PagesController@show');
 Route::post('/create', 'PagesController@store');
 Route::post('/', 'PagesController@updated');
